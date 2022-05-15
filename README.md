@@ -4,25 +4,27 @@ This stack creates a VPC and an RDS Aurora cluser with MySQL engine.
 
 ## Usage
 
-Create the secret manually for the master password db. To do it so, go to the AWS Secrets Manager console and create a new secret. The key name has to be “master_password”. Generate a strong password with you tool of choice.
+* Create the secret manually for the master password db. To do it so, go to the AWS Secrets Manager console and create a new secret. The key name has to be “master_password”. Generate a strong password with you tool of choice.
 
-Go to the second stack and modify the file ‘terraform.tf’, paste there the name of the bucket in the bucket option.
+* Modify the file ‘terraform.tf’, paste there the name of your tf state bucket in the bucket option.
 
-Create a new workspace with the name of the environment you want to deploy
+* Create a new workspace with the name of the environment you want to deploy
 
-terraform workspace new dev
+```terraform workspace new dev```
 
-Select the workspace to work in. “terraform workspace new dev”
+* Select the workspace to work in. “terraform workspace new dev”
 
-terraform workspace select dev
+```terraform workspace select dev```
 
-Run the init, plan and apply with Terraform:
+* Run the init, plan and apply with Terraform:
 
+```
 terraform init
 
 terraform plan --var-file=./vars/dev.tfvars (validate everything is correct)
 
 terraform apply -var-file=./vars/dev.tfvars (confirn with a yes)
+```
 
 
 
